@@ -30,3 +30,19 @@
     //margin: (@lineheight/@fontsize*(@multiplier/(@lineheight/@defaultlineheight)))*1em 0 0; original, harder-to-read version
     //margin: ((@multiplier * @defaultlineheight) / @fontsize) * 1em 0 0;
 }
+
+.border-radius (@radius: 5px) {
+    -webkit-border-radius: @radius;
+    -moz-border-radius:    @radius;
+    border-radius:         @radius;
+
+    -moz-background-clip:    padding;
+    -webkit-background-clip: padding-box;
+    background-clip:         padding-box;
+}
+
+.opacity (@opacity: 0.5) {
+    -webkit-opacity:    @opacity;
+    -moz-opacity:       @opacity;
+    opacity:        @opacity;
+}

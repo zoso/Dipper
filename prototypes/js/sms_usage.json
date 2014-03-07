@@ -3,7 +3,7 @@
         "type": "bar"
     },
     "title": {
-        "text": "1000 MB data",
+        "text": "100 SMS / MMS",
         "align": "left"
     },
     "xAxis": {
@@ -23,7 +23,7 @@
         }
     },
     "tooltip": {
-        "valueSuffix": "MB"
+        "valueSuffix": " stk."
     },
     "plotOptions": {
         "bar": {
@@ -58,7 +58,7 @@
         {
             "name": "Ditt forbruk",
             "data": [
-                634
+                493
             ]
         }
     ]

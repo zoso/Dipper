@@ -134,6 +134,16 @@
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsSetByUser": 0
 		},
+	"\/prototypes\/img\/csscheckbox.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1427,
+		"inputAbbreviatedPath": "\/prototypes\/img\/csscheckbox.png",
+		"outputAbbreviatedPath": "\/prototypes\/img\/csscheckbox.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/prototypes\/img\/dipper-logo.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -153,6 +163,76 @@
 		"outputAbbreviatedPath": "\/prototypes\/img\/graph_bg.png",
 		"outputPathIsSetByUser": 0,
 		"processed": 0
+		},
+	"\/prototypes\/img\/ok-pink.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3527,
+		"inputAbbreviatedPath": "\/prototypes\/img\/ok-pink.png",
+		"outputAbbreviatedPath": "\/prototypes\/img\/ok-pink.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/prototypes\/js\/arena_2012.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/prototypes\/js\/arena_2012.js",
+		"outputAbbreviatedPath": "\/prototypes\/js\/min\/arena_2012-ck.js",
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/prototypes\/js\/arena_2013.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/prototypes\/js\/arena_2013.js",
+		"outputAbbreviatedPath": "\/prototypes\/js\/min\/arena_2013-ck.js",
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/prototypes\/js\/arena_oct_2013.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/prototypes\/js\/arena_oct_2013.js",
+		"outputAbbreviatedPath": "\/prototypes\/js\/min\/arena_oct_2013-ck.js",
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/prototypes\/js\/min\/arena_2012-ck.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/prototypes\/js\/min\/arena_2012-ck.js",
+		"outputAbbreviatedPath": "\/prototypes\/js\/min\/min\/arena_2012-ck-ck.js",
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/prototypes\/js\/min\/arena_2013-ck.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/prototypes\/js\/min\/arena_2013-ck.js",
+		"outputAbbreviatedPath": "\/prototypes\/js\/min\/min\/arena_2013-ck-ck.js",
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/prototypes\/js\/min\/arena_oct_2013-ck.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/prototypes\/js\/min\/arena_oct_2013-ck.js",
+		"outputAbbreviatedPath": "\/prototypes\/js\/min\/min\/arena_oct_2013-ck-ck.js",
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
 		},
 	"\/Skisser\/minside_bedrift_1.png": {
 		"fileType": 32768,

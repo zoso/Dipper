@@ -3,7 +3,7 @@
         "type": "bar"
     },
     "title": {
-        "text": "1000 MB data",
+        "text": "30 timer taletid",
         "align": "left"
     },
     "xAxis": {
@@ -16,14 +16,14 @@
     },
     "yAxis": {
         "min": 1,
-        "max": 1000,
+        "max": 30,
         "title": {
             "text": "",
             "align": "high"
         }
     },
     "tooltip": {
-        "valueSuffix": "MB"
+        "valueSuffix": "x timer y sekunder"
     },
     "plotOptions": {
         "bar": {
@@ -58,7 +58,7 @@
         {
             "name": "Ditt forbruk",
             "data": [
-                634
+                21
             ]
         }
     ]

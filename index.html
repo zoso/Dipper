@@ -47,11 +47,17 @@
 			<div class="content">
 				<h3>MITT FORBRUK</h3>
 				<div id="myData" style="height: 150px;"></div>
-				<div class="msg">Dette er en melding</div>
+				<div class="msg light arrow-up">
+					<p>Dette er en melding</p>
+				</div>
 				<div id="myTale" style="height: 150px;"></div>
-				<div class="msg">Dette er en melding</div>
+				<div class="msg dark arrow-up">
+					<p>Dette er en melding</p>
+				</div>
 				<div id="mySMS" style="height: 150px;"></div>
-				<div class="msg">Dette er en melding</div>
+				<div class="msg light arrow-up">
+					<p>Dette er en melding med litt tekst</p>
+				</div>
 			</div>
 		</div>
 		<div class="box medium right">
@@ -126,15 +132,105 @@
 				<p><a href="#">Bestill nytt SIM Kort</a> eller <a href="#">aktiver et nytt SIM kort</a></p>
 			</div>
 		</div>
-		<div class="box medium left">
-			<div class="content">
-				<h3>TJENESTER & TILLEGGSPAKKER</h3>
-			</div>
-		</div>
 		<div class="box medium right">
 			<div class="content">
-				<h3>DETALJERT FORBRUK</h3>
+				<h3>TJENESTER & TILLEGGSPAKKER</h3>
+				<p><span class="icon-ok">&nbsp;</span>Mobilsvar</p>
+				<p><span class="icon-ok">&nbsp;</span>Sperre for teletorg-underholdning</p>
+				<div class="recommendedContainer">
+					<p>Vi anbefaler følgene:</p>
+				</div>
+				<div class="recommendedBox">
+					<h4>Ringer du mye til- og fra Europa?</h4>
+					<p>Med abonnementet Tale Europa kan du ringe til- og snakke i EØS / EU for kun 0,49,- pr. minutt</p>
+					<p>
+						<input type="checkbox" name="checkbox_call" id="checkbox_call" class="rec-checkbox" checked="checked">
+						<label for="checkbox_call" class="rec-label">Legg til <strong>Tale Europa</strong> for 99,- pr. mnd</label>
+					</p>
+				</div>
+				<div class="recommendedBox">
+					<h4>Behov for mer datatrafikk?</h4>
+					<p>Du kan legge til 1GB ekstra datatrafikk i måneden for kr 99,-</p>
+					<p>
+						<input type="checkbox" name="checkbox_data" id="checkbox_data" class="rec-checkbox" checked="checked">
+						<label for="checkbox_data" class="rec-label">Legg til <strong>1 GB ekstra datatrafikk</strong> for 99,- pr. mnd</label>
+					</p>
+				</div>
+				<div class="recommendedBox">
+					<h4>Skal du ut og reise? Behov for internett?</h4>
+					<p>Skal du ut og reise og har behov for Internett betaler du aldri mer enn 59,- for de første 50 MB hver dag</p>
+					<p>
+						<input type="checkbox" name="checkbox_data_europe" id="checkbox_data_europe" class="rec-checkbox">
+						<label for="checkbox_data_europe" class="rec-label">Legg til <strong>1 GB ekstra datatrafikk</strong> for 99,- pr. mnd</label>
+					</p>
+				</div>
+				<div class="recommendedBtn">
+					<div class="button large"><a href="#">SEND FORESPØRSEL</a></div>
+				</div>
 			</div>
+		</div>
+		<div class="box medium left">
+			<div class="content">
+				<h3>DETALJERT FORBRUK</h3>
+				<table>
+					<tr>
+						<td>Tale</td>
+						<td>25.40</td>
+					</tr>
+					<tr>
+						<td>Tale i utland</td>
+						<td>104.53</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>Data</td>
+						<td>0.00</td>
+					</tr>
+					<tr>
+						<td>Data i utlandet</td>
+						<td>0.00</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>SMS/MMS</td>
+						<td>0.00</td>
+					</tr>
+					<tr>
+						<td>SMS i utlandet</td>
+						<td>0.00</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>Månedsavgift</td>
+						<td>149.00</td>
+					</tr>
+					<tr>
+						<td>Tilleggspakker</td>
+						<td>49.00</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td><strong>Totalt:</strong></td>
+						<td><strong>327.93</strong></td>
+					</tr>
+				</table>
+				<div class="recommendedBtn">
+					<div class=""><a href="#">Se fullstendig overskrift</a></div>
+				</div>
+			</div>
+			
 		</div>
 	</div>
 	<footer>
@@ -155,7 +251,7 @@
 		}
 		var defaultSettings = {
 			"colors": [
-				"#ffedf7",
+				"#f966b7",
 				"#e71e8d",
 				"#c00076"
 			],
@@ -174,269 +270,61 @@
 		/*
 		- NB!
 			- use JSON for chart data - see arena_2013.json
-
 		*/
-		function getArenaData(_src, callback) {
-			$.ajax({
-				url: _src,
-				dataType: 'json',
-				success: function(data) {
-					if (callback) {
-						callback(data);
-					} else {
-						log("data : "+data);
-					}
-				},
-				error: function(j, e) {
-					log("error "+j+" > "+e);
+		var loaderArr = [
+			{
+				"url":"prototypes/js/arena_2013.json",
+				"el": "#areaContainer"
+			},
+			{
+				"url":"prototypes/js/data_usage.json",
+				"el": "#myData"
+			},
+			{
+				"url":"prototypes/js/speach_usage.json",
+				"el": "#myTale"
+			},
+			{
+				"url":"prototypes/js/sms_usage.json",
+				"el": "#mySMS"
+			}
+		];
+
+		var graphLoader = {
+			arr: [],
+			counter: 0,
+			init: function(data) {
+				this.arr = data;
+				this.load();
+			},
+			load: function() {
+				if (this.counter < this.arr.length) {
+					this.getData(this.show);
+				} else {
+					log("no more loading");
 				}
-			})
-		};
-
-
-		getArenaData('prototypes/js/arena_2013.json', function(data) {
-			var obj = $.extend({}, defaultSettings, data);
-			$("#areaContainer").highcharts(obj);
-		});
-
-		getArenaData('prototypes/js/data_usage.json', function(data) {
-			var obj = $.extend({}, defaultSettings, data);
-			$("#myData").highcharts(obj);
-		});
-		
-
-		//var test = $.extend({}, defaultSettings, area);
-		
-
-		/*$(function() {
-			$("#areaContainer").highcharts(test);
-		});*/
-
-		/*$(function() {
-			var perShapeGradient = {
-	            x1: 0,
-	            y1: 1,
-	            x2: 0,
-	            y2: 0
-	        };
-			$('#myData').highcharts({
-				chart: {
-					type: 'bar'
-				},
-				title: {
-					text: 'Data use in MB'
-				},
-				xAxis: {
-					title: {
-						text: ''
+			},
+			getData: function(callback) {
+				$.ajax({
+					url: this.arr[this.counter].url,
+					dataType: 'json',
+					success: function(data) {
+						if (callback) callback(data);
 					},
-					labels: {
-						enabled: false
+					error: function(j, e) {
+						log("error "+j+" > "+e);
 					}
-					
-				},
-				yAxis: {
-					min: 1,
-					max: 1000,
-					title: {
-						text: '',
-						align: 'high' 
-					}
-					
+				});
+			},
+			show: function(data) {
+				var obj = $.extend({}, defaultSettings, data);
+				$(graphLoader.arr[graphLoader.counter].el).highcharts(obj);
+				graphLoader.counter++;
+				graphLoader.load();
+			} 
+		}
+		graphLoader.init(loaderArr);
 
-				},
-				tooltip: {
-					valueSuffix: ' MB'
-				},
-				plotOptions: {
-					bar: {
-						dataLabels: {
-							enabled: false
-						}, 
-						series: {
-							stacking: 'percent'
-						}
-					}
-				},
-				colors: [
-
-					{
-						linearGradient: perShapeGradient,
-            			stops: [
-			                [0, 'rgb(234, 0, 140)'],
-			                [1, 'rgb(143, 0, 92)']
-			              ]
-
-					}
-				],
-				legend: {
-					enabled: false,
-					layout: 'horizontal',
-					align: 'left',
-				},
-				navigation: { //print menu
-		            buttonOptions: {
-		                enabled: false
-		            }
-		        },
-				series: [{
-					name: 'Ditt forbruk',
-					data: [634]
-				}],
-
-			});
-		});*/
-
-		$(function() {
-			var perShapeGradient = {
-	            x1: 0,
-	            y1: 1,
-	            x2: 0,
-	            y2: 0
-	        };
-			$('#myTale').highcharts({
-				chart: {
-					type: 'bar'
-				},
-				title: {
-					text: '30 timer taletid'
-				},
-				xAxis: {
-					title: {
-						text: ''
-					},
-					labels: {
-						enabled: false
-					}	
-				},
-				yAxis: {
-					min: 1,
-					max: 30,
-					title: {
-						text: '',
-						align: 'high' 
-					},
-					labels: {
-						overflow: 'justify'
-					}
-				},
-				tooltip: {
-					valueSuffix: ' timer'
-				},
-				plotOptions: {
-					bar: {
-						dataLabels: {
-							enabled: false
-						}, 
-						series: {
-							stacking: 'percent'
-						}
-					}
-				},
-				colors: [
-					//'#ea008b'
-					{
-						linearGradient: perShapeGradient,
-            			stops: [
-			                [0, 'rgb(234, 0, 140)'],
-			                [1, 'rgb(143, 0, 92)']
-			              ]
-
-					}
-				],
-				legend: {
-					enabled: false,
-					layout: 'horizontal',
-					align: 'left',
-				},
-				navigation: { //print menu
-		            buttonOptions: {
-		                enabled: false
-		            }
-		        },
-				series: [{
-					name: 'Ditt forbruk',
-					data: [27]
-				}],
-
-			});
-
-		});
-
-		$(function() {
-			var perShapeGradient = {
-	            x1: 0,
-	            y1: 1,
-	            x2: 0,
-	            y2: 0
-	        };
-			$('#mySMS').highcharts({
-				chart: {
-					type: 'bar'
-				},
-				title: {
-					text: '1000 SMS/MMS'
-				},
-				xAxis: {
-					title: {
-						text: ''
-					},
-					labels: {
-						enabled: false
-					},
-
-				},
-				yAxis: {
-					min: 1,
-					max: 1000,
-					title: {
-						text: '',
-						align: 'high' 
-					},
-					gridLineColor: '#f2f'
-				},
-				tooltip: {
-					valueSuffix: ' meldinger'
-				},
-				plotOptions: {
-					bar: {
-						dataLabels: {
-							enabled: false
-						}, 
-						series: {
-							stacking: 'percent'
-						}
-					}
-				},
-				colors: [
-					//'#ea008b'
-					{
-						linearGradient: perShapeGradient,
-            			stops: [
-			                [0, 'rgb(234, 0, 140)'],
-			                [1, 'rgb(143, 0, 92)']
-			              ]
-
-					}
-				],
-				legend: {
-					enabled: false,
-					layout: 'horizontal',
-					align: 'left',
-				},
-				navigation: { //print menu
-		            buttonOptions: {
-		                enabled: false
-		            }
-		        },
-				series: [{
-					name: 'Ditt forbruk',
-					data: [27]
-				}],
-
-			});
-			
-		});
 	});
 </script>
 </html>
