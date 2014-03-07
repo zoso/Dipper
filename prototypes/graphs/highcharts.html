@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Highcharts</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="http://code.highcharts.com/highcharts.js"></script>
+	<script src="http://code.highcharts.com/modules/exporting.js"></script>
+	
+</head>
+<body>
+	<h1>Highcharts</h1>
+	<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+	<div id="areaContainer" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+</body>
+
+<script>
+	$(document).ready(function() {
+		$(function() {
+			$('#container').highcharts({
+				chart: {
+					type: 'column'
+				},
+				title: {
+					text: 'Data use in MB'
+				},
+				xAxis: {
+					categories: [
+						'0', '10', '20', '30', '40' 
+					] 
+				},
+				yAxis: {
+					min: 1,
+					title: {
+						text: 'Days (month)',
+						align: 'high' 
+					},
+					labels: {
+						overflow: 'justify'
+					}
+				},
+				tooltip: {
+					valueSuffix: ' MB'
+				},
+				plotOptions: {
+					bar: {
+						dataLabels: {
+							enabled: true
+						}
+					}
+				},
+				legend: {
+					layout: 'horizontal',
+					align: 'left',
+				},
+				series: [{
+					name: 'Test 1',
+					data: [0.1, 0.4, 1.2, 0.2, 0.9]
+				}, {
+					name: 'Test 2',
+					data: [0.4, 1.2, 0.4, 0.6, 0.5]
+				}, {
+					name: 'Test 3',
+					data: [1.4, 0.2, 0.3, 1.1, 0.2]
+				}],
+
+			});
+		});
+
+		$(function() {
+			$("#areaContainer").highcharts({
+				chart: {
+					type: 'area'
+				},
+				title: {
+					text: 'Oversikt over de siste x mnd'
+				},
+				xAxis: {
+					categories: [
+						'desember', 'januar', 'februar', 'mars', 'april', 'mai', 'juni', 'juli', 'august', 'september', 'oktober', 'november'
+					]
+				},
+				yAxis: {
+					title: {
+						text: 'Forbruk'
+					}
+				},
+				plotOptions: {
+					area: {
+						stacking: 'normal',
+						lineColor: '#555555',
+						lineWidth: 1,
+						marker: {
+							lineWidth: 1,
+							lineColor: '#111111'
+						}
+					}
+				},
+				series: [
+					{
+						name: 'Data',
+						data: [32, 13, 144, 55, 46, 33, 14, 25, 62, 62, 3, 23]
+					},
+					{
+						name: 'Tale',
+						data: [12, 14, 14, 11, 34, 42, 13, 41, 11, 13, 4, 12]
+					},
+					{
+						name: 'SMS/MMS',
+						data: [0, 4, 25, 11, 5, 4, 20, 40, 29, 29, 12, 20]
+					}
+				]
+			});
+		});
+
+	});
+	
+
+</script>
+
+</html>

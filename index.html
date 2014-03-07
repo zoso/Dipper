@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Dipper</title>
+	<link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,600,400italic,300,200,100' rel='stylesheet' type='text/css'>
+	<link href='//fonts.googleapis.com/css?family=Gloria+Hallelujah' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="prototypes/css/0_site.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="http://code.highcharts.com/highcharts.js"></script>
+	<script src="http://code.highcharts.com/modules/exporting.js"></script>
+</head>
+<body>
+	<div class="topContainer">
+			<div class="topMenu wrapper">
+				<div class="logo"><a href="#"><img src="prototypes/img/dipper-logo.png" alt="Tilbake til forsiden"></a></div>
+				<div class="aboInfo"><h2>Navn Navnesen</h2> <span>30 timer - 299,- pr. mnd (90150258)</span></div>
+			</div>
+	</div>
+	<div class="topContainer">
+			<nav class="subMenu wrapper">
+				<ul>
+					<li><a href="#">MIN SIDE</a></li>
+					<li class="selected"><a href="#">FORBRUK & FAKTURA</a></li>
+					<li><a href="#">TJENESTER</a></li>
+					<li><a href="#">KUNDESERVICE</a></li>
+					<li class="logout"><a href="#">LOGG UT</a></li>
+				</ul>
+			</div>	
+		</div>
+	</div>
+	<div class="contentContainer wrapper">
+		<!-- <div class="box big">
+			<h3>Dipper</h3>
+			<ul>
+				<li><a href="prototypes/graphs/googlecharts.html">Google Charts</a></li>
+				<li><a href="prototypes/graphs/highcharts.html">Highcharts</a></li>
+			</ul>
+		</div> -->
+		<div class="box big">
+			<div class="content">
+				<h3>Big box</h3>
+				<div id="areaContainer"></div>
+			</div>
+		</div>
+		<div class="box medium left">
+			<div class="content">
+				<h3>MITT FORBRUK</h3>
+				<div id="myData" style="height: 150px;"></div>
+				<div class="msg">Dette er en melding</div>
+				<div id="myTale" style="height: 150px;"></div>
+				<div class="msg">Dette er en melding</div>
+				<div id="mySMS" style="height: 150px;"></div>
+				<div class="msg">Dette er en melding</div>
+			</div>
+		</div>
+		<div class="box medium right">
+			<div class="content">
+				<h3>PROFIL</h3>
+				<table cellspacing="0" border="0" cellpadding="0">
+					<tr>
+						<td>Kundenummer:
+							<p>5358533535</p>
+						</td>
+						<td>
+							Telefon:
+							<p>4224 2442</p>
+						</td>
+					</tr>
+					<tr>
+						<td>Firma:</td>
+						<p>Epinova AS</p>
+						<td>PUK kode:
+						<p>20842048240</p>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+				<p><a href="#">Endre profil</a></p>
+				<p><a href="#">Endre passord</a></p>
+			</div>
+		</div>
+		<div class="box medium right">
+			<div class="content">
+				<h3>SIM-KORT</h3>
+				<table cellspacing="0" cellpadding="0" border="0">
+					<thead>
+						<tr>
+							<td>SIM-kort</td>
+							<td>PUK kode</td>
+							<td></td>
+						</tr>
+					</thead>
+					<tr>
+						<td>24562456</td>
+						<td>245624564</td>
+						<td>Sperre&nbsp;|&nbsp;Aktivere</td>
+					</tr>
+					<tr>
+						<td>4556356u35</td>
+						<td>56u56u35635</td>
+						<td>Sperre&nbsp;|&nbsp;Aktivere</td>
+					</tr>
+					<tr>
+						<td>56356u356u</td>
+						<td>56356356</td>
+						<td>Sperre&nbsp;|&nbsp;Aktivere</td>
+					</tr>
+					<tr>
+						<td>5635635656356</td>
+						<td>5635653656536</td>
+						<td>Sperre&nbsp;|&nbsp;Aktivere</td>
+					</tr>
+				</table>
+				<p><a href="#">Bestill nytt SIM Kort</a> eller <a href="#">aktiver et nytt SIM kort</a></p>
+			</div>
+		</div>
+		<div class="box medium left">
+			<div class="content">
+				<h3>TJENESTER & TILLEGGSPAKKER</h3>
+			</div>
+		</div>
+		<div class="box medium right">
+			<div class="content">
+				<h3>DETALJERT FORBRUK</h3>
+			</div>
+		</div>
+	</div>
+	<footer>
+		<div class="wrapper">
+			Da footer?
+		</div>
+	</footer>
+</body>
+<script>
+	$(document).ready(function() {
+		function log(m) {
+			window.console && console.log("log: " + m);// || alert("log: "+m); 
+		}
+		function checkObj(obj) {
+			for (var i in obj) {
+				log(i+" > "+obj[i]);
+			}
+		}
+		var defaultSettings = {
+			"colors": [
+				"#ffedf7",
+				"#e71e8d",
+				"#c00076"
+			],
+			"perShapeGradient": {
+	            "x1": 0,
+	            "y1": 1,
+	            "x2": 0,
+	            "y2": 0
+	        },
+	        "navigation": {
+	            "buttonOptions": {
+	                "enabled": false
+	            }
+	        }
+		};
+		/*
+		- NB!
+			- use JSON for chart data - see arena_2013.json
+
+		*/
+		function getArenaData(_src, callback) {
+			$.ajax({
+				url: _src,
+				dataType: 'json',
+				success: function(data) {
+					if (callback) {
+						callback(data);
+					} else {
+						log("data : "+data);
+					}
+				},
+				error: function(j, e) {
+					log("error "+j+" > "+e);
+				}
+			})
+		};
+
+
+		getArenaData('prototypes/js/arena_2013.json', function(data) {
+			var obj = $.extend({}, defaultSettings, data);
+			$("#areaContainer").highcharts(obj);
+		});
+
+		getArenaData('prototypes/js/data_usage.json', function(data) {
+			var obj = $.extend({}, defaultSettings, data);
+			$("#myData").highcharts(obj);
+		});
+		
+
+		//var test = $.extend({}, defaultSettings, area);
+		
+
+		/*$(function() {
+			$("#areaContainer").highcharts(test);
+		});*/
+
+		/*$(function() {
+			var perShapeGradient = {
+	            x1: 0,
+	            y1: 1,
+	            x2: 0,
+	            y2: 0
+	        };
+			$('#myData').highcharts({
+				chart: {
+					type: 'bar'
+				},
+				title: {
+					text: 'Data use in MB'
+				},
+				xAxis: {
+					title: {
+						text: ''
+					},
+					labels: {
+						enabled: false
+					}
+					
+				},
+				yAxis: {
+					min: 1,
+					max: 1000,
+					title: {
+						text: '',
+						align: 'high' 
+					}
+					
+
+				},
+				tooltip: {
+					valueSuffix: ' MB'
+				},
+				plotOptions: {
+					bar: {
+						dataLabels: {
+							enabled: false
+						}, 
+						series: {
+							stacking: 'percent'
+						}
+					}
+				},
+				colors: [
+
+					{
+						linearGradient: perShapeGradient,
+            			stops: [
+			                [0, 'rgb(234, 0, 140)'],
+			                [1, 'rgb(143, 0, 92)']
+			              ]
+
+					}
+				],
+				legend: {
+					enabled: false,
+					layout: 'horizontal',
+					align: 'left',
+				},
+				navigation: { //print menu
+		            buttonOptions: {
+		                enabled: false
+		            }
+		        },
+				series: [{
+					name: 'Ditt forbruk',
+					data: [634]
+				}],
+
+			});
+		});*/
+
+		$(function() {
+			var perShapeGradient = {
+	            x1: 0,
+	            y1: 1,
+	            x2: 0,
+	            y2: 0
+	        };
+			$('#myTale').highcharts({
+				chart: {
+					type: 'bar'
+				},
+				title: {
+					text: '30 timer taletid'
+				},
+				xAxis: {
+					title: {
+						text: ''
+					},
+					labels: {
+						enabled: false
+					}	
+				},
+				yAxis: {
+					min: 1,
+					max: 30,
+					title: {
+						text: '',
+						align: 'high' 
+					},
+					labels: {
+						overflow: 'justify'
+					}
+				},
+				tooltip: {
+					valueSuffix: ' timer'
+				},
+				plotOptions: {
+					bar: {
+						dataLabels: {
+							enabled: false
+						}, 
+						series: {
+							stacking: 'percent'
+						}
+					}
+				},
+				colors: [
+					//'#ea008b'
+					{
+						linearGradient: perShapeGradient,
+            			stops: [
+			                [0, 'rgb(234, 0, 140)'],
+			                [1, 'rgb(143, 0, 92)']
+			              ]
+
+					}
+				],
+				legend: {
+					enabled: false,
+					layout: 'horizontal',
+					align: 'left',
+				},
+				navigation: { //print menu
+		            buttonOptions: {
+		                enabled: false
+		            }
+		        },
+				series: [{
+					name: 'Ditt forbruk',
+					data: [27]
+				}],
+
+			});
+
+		});
+
+		$(function() {
+			var perShapeGradient = {
+	            x1: 0,
+	            y1: 1,
+	            x2: 0,
+	            y2: 0
+	        };
+			$('#mySMS').highcharts({
+				chart: {
+					type: 'bar'
+				},
+				title: {
+					text: '1000 SMS/MMS'
+				},
+				xAxis: {
+					title: {
+						text: ''
+					},
+					labels: {
+						enabled: false
+					},
+
+				},
+				yAxis: {
+					min: 1,
+					max: 1000,
+					title: {
+						text: '',
+						align: 'high' 
+					},
+					gridLineColor: '#f2f'
+				},
+				tooltip: {
+					valueSuffix: ' meldinger'
+				},
+				plotOptions: {
+					bar: {
+						dataLabels: {
+							enabled: false
+						}, 
+						series: {
+							stacking: 'percent'
+						}
+					}
+				},
+				colors: [
+					//'#ea008b'
+					{
+						linearGradient: perShapeGradient,
+            			stops: [
+			                [0, 'rgb(234, 0, 140)'],
+			                [1, 'rgb(143, 0, 92)']
+			              ]
+
+					}
+				],
+				legend: {
+					enabled: false,
+					layout: 'horizontal',
+					align: 'left',
+				},
+				navigation: { //print menu
+		            buttonOptions: {
+		                enabled: false
+		            }
+		        },
+				series: [{
+					name: 'Ditt forbruk',
+					data: [27]
+				}],
+
+			});
+			
+		});
+	});
+</script>
+</html>

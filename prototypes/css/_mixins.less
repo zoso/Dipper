@@ -1,0 +1,32 @@
+@import '_vars.less';
+.outline(@col: #000) {
+	outline: 1px solid @col;
+}
+
+.box-shadow(@shadow: 0 1px 3px rgba(0,0,0,.25)) {
+  -webkit-box-shadow: @shadow;
+     -moz-box-shadow: @shadow;
+          box-shadow: @shadow;
+}
+
+.clearfix {
+    *zoom: 1; // for oldIE
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+@defaultfontsize: 14;
+@defaultlineheight: @defaultfontsize*1.375;
+
+.font(@fontsize:16,@lineheight:24,@multiplier:1,@lineheightreducer:1) {
+    font-size: (@fontsize/@defaultfontsize)*1em;
+    line-height: @lineheight/@fontsize/@lineheightreducer;
+    //margin: (@lineheight/@fontsize*(@multiplier/(@lineheight/@defaultlineheight)))*1em 0 0; original, harder-to-read version
+    //margin: ((@multiplier * @defaultlineheight) / @fontsize) * 1em 0 0;
+}

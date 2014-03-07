@@ -1,0 +1,64 @@
+{
+    "chart": {
+        "type": "bar"
+    },
+    "title": {
+        "text": "Data use in MB"
+    },
+    "xAxis": {
+        "title": {
+            "text": ""
+        },
+        "labels": {
+            "enabled": false
+        }
+    },
+    "yAxis": {
+        "min": 1,
+        "max": 1000,
+        "title": {
+            "text": "",
+            "align": "high"
+        }
+    },
+    "tooltip": {
+        "valueSuffix": "MB"
+    },
+    "plotOptions": {
+        "bar": {
+            "dataLabels": {
+                "enabled": false
+            },
+            "series": {
+                "stacking": "percent"
+            }
+        }
+    },
+    "colors": [
+        {
+            "linearGradient": {
+                "x1": 0,
+                "y1": 1,
+                "x2": 0,
+                "y2": 0
+            },
+            "stops": [
+                [0, "rgb(234, 0, 140)"],
+                [1, "rgb(143, 0, 93)"]
+            ]
+        }
+    ],
+    "legend": {
+        "enabled": false,
+        "layout": "horizontal",
+        "align": "left"
+    },
+    "series": [
+        {
+            "name": "Ditt forbruk",
+            "data": [
+                634
+            ]
+        }
+    ]
+}
